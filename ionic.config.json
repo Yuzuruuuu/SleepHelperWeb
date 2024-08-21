@@ -1,0 +1,7 @@
+{
+  "name": "SleepHelperWeb",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

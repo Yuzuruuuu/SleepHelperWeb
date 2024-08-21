@@ -14,4 +14,19 @@
   </ion-header>
 
   <app-explore-container name="Tab 3 page"></app-explore-container>
+
+  <!-- 添加按钮，点击后扫描蓝牙设备 -->
+  <ion-button expand="full" (click)="connectToBluetooth()">
+    Scan and Connect to Bluetooth Device
+  </ion-button>
+
+  <!-- 显示设备名称 -->
+  <div *ngIf="deviceName">
+    <p>Connected to: {{ deviceName }}</p>
+  </div>
+
+  <!-- 显示从 pillowCharacteristics 读取到的数据 -->
+  <div *ngIf="pillowData">
+    <p>Pillow Data: {{ pillowData }}</p>
+  </div>
 </ion-content>

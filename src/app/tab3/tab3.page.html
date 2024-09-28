@@ -1,32 +1,35 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Connect to Pillow
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
-
+<ion-content>
   <!-- 添加按钮，点击后扫描蓝牙设备 -->
   <ion-button expand="full" (click)="connectToBluetooth()">
     Scan and Connect to Bluetooth Device
   </ion-button>
 
-  <!-- 显示设备名称 -->
-  <div *ngIf="deviceName">
-    <p>Connected to: {{ deviceName }}</p>
-  </div>
+  <!-- 显示接收到的数据 -->
+  <ion-card>
+    <ion-card-content>
+      <!-- 显示设备名称 -->
+      <div *ngIf="deviceName">
+        <p>Connected to: {{ deviceName }}</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
 
-  <!-- 显示从 pillowCharacteristics 读取到的数据 -->
-  <div *ngIf="pillowData">
-    <p>Pillow Data: {{ pillowData }}</p>
-  </div>
+  <!-- 显示接收到的数据 -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Received Data</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ pillowData }}</p>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

@@ -14,6 +14,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.0.0",
+    "@angular/cdk": "^18.2.6",
     "@angular/common": "^18.0.0",
     "@angular/compiler": "^18.0.0",
     "@angular/core": "^18.0.0",
@@ -24,6 +25,7 @@
     "@angular/service-worker": "^18.0.0",
     "@capacitor/app": "6.0.1",
     "@capacitor/core": "6.1.2",
+    "@capacitor/filesystem": "^6.0.1",
     "@capacitor/haptics": "6.0.1",
     "@capacitor/keyboard": "6.0.2",
     "@capacitor/status-bar": "6.0.1",

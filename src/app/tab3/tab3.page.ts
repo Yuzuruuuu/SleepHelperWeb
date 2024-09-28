@@ -1,4 +1,5 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
+import { AudioFileService } from '../audio-file.service';
 
 @Component({
   selector: 'app-tab3',
@@ -6,8 +7,10 @@ import { Component, OnDestroy } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page implements OnDestroy {
+  private readonly fileService = inject(AudioFileService);
+
   public deviceName: string | undefined;  // 用于存储设备名称
-  public pillowData: string | undefined;  // 用于存储从 pillowCharacteristics 读取到的数据
+  public pillowData: string = this.fileService.receivedData;  // 用于存储从 pillowCharacteristics 读取到的数据
   private gattServer: BluetoothRemoteGATTServer | undefined;  // 用于存储 GATT 服务器实例
   private intervalId: any;  // 用于存储定时器 ID
 
@@ -64,6 +67,7 @@ export class Tab3Page implements OnDestroy {
       .then(value => {
         const decoder = new TextDecoder('utf-8');
         this.pillowData = decoder.decode(value.buffer);
+        this.fileService.receivedData = this.pillowData;
         console.log(`Pillow data: ${this.pillowData}`);
       })
       .catch(error => {
